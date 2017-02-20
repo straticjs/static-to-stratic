@@ -3,10 +3,12 @@ var gulp = require('gulp'),
     ecstatic = require('ecstatic'),
     path = require('path'),
     gutil = require('gulp-util'),
-    ghpages = require('gh-pages');
+    ghpages = require('gh-pages'),
+    pug = require('gulp-pug');
 
 gulp.task('build:html', function() {
-	gulp.src('src/*.html')
+	gulp.src('src/*.pug')
+	    .pipe(pug())
 	    .pipe(gulp.dest('dist'));
 });
 
@@ -21,7 +23,7 @@ gulp.task('build:js', function() {
 });
 
 gulp.task('watch', ['build'], function() {
-	gulp.watch('src/*.html', ['build:html']);
+	gulp.watch('src/*.pug', ['build:html']);
 	gulp.watch('src/styles/*', ['build:css']);
 	gulp.watch('src/scripts/*', ['build:js']);
 });
