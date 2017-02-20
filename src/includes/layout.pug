@@ -1,0 +1,22 @@
+doctype html
+html
+  head
+    meta(charset='UTF-8')
+    link(href='/css/main.css', rel='stylesheet', type='text/css')
+    block head
+  body
+    block heading
+    nav
+      ul
+        block nav-homepage
+          li
+            a(href='/') Homepage
+        block nav-projects
+          li
+            a(href='/projects') Projects
+
+    block body
+
+    footer
+      p &copy; Copyright 2016 Alyssa P. Hacker.
+    script(src='/js/main.js', type='text/javascript')

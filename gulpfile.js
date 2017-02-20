@@ -8,7 +8,7 @@ var gulp = require('gulp'),
 
 gulp.task('build:html', function() {
 	gulp.src('src/*.pug')
-	    .pipe(pug())
+	    .pipe(pug({pretty: true}))
 	    .pipe(gulp.dest('dist'));
 });
 
@@ -23,7 +23,7 @@ gulp.task('build:js', function() {
 });
 
 gulp.task('watch', ['build'], function() {
-	gulp.watch('src/*.pug', ['build:html']);
+	gulp.watch(['src/*.pug', 'src/includes/*.pug'], ['build:html']);
 	gulp.watch('src/styles/*', ['build:css']);
 	gulp.watch('src/scripts/*', ['build:js']);
 });
